@@ -10,13 +10,14 @@ Assuming you are using Google Chrome as browser of choice you need to:
 
 - open in a new tab [this](http://www.valori-alimenti.com/cerca/grassi.php) url which is our starting page
 - open the Chrome DevTool and the Console tab (ALT+CMD+I)
-- open in an another tab [this link](http://code.jquery.com/jquery-2.1.4.min.js) in order to grab (copy into the clipboard) the full source of jQuery, then close it
+- open in another tab [this link](http://code.jquery.com/jquery-2.1.4.min.js) in order to grab (copy into the clipboard) the full source of jQuery, then close it
 - back to the first tab, paste the full code into the Console window and hit ENTER
 
 Now we have injected jQuery into the original page thus we can exploit it for our purposes.
 
-The starting page shows the complete list of nutrition elements we need to scrape. Each element contains also the link to its detail page we'll cover later.
-Copy and paste the following snippet in order to transform that list into a logic javascript array.
+The starting page shows the complete list of nutrition elements we need to scrape. 
+Each element contains also the link to its detail page that we'll cover later.
+Copy and paste (and hit ENTER) the following snippet in order to transform that list into a logic javascript array.
 
 
 ```javascript
@@ -61,13 +62,15 @@ function getItem(item){
 	})
 }
 
+// example line for test only
 var item = {name:'aaa', link:'/nutrizionali/tabella04002.php'}
 getItem(item);
 
 ```
 
 
-This snippet is not actually ready since it needs a way to be called for each item present in the array. You can see the additional code in the next snippet, which is ready to be copied:
+The above snippet is not actually ready since it needs a way to be called for each item present in the array. 
+You can see the additional code in the next one, which is ready to be copied:
 
 
 
@@ -115,46 +118,34 @@ check();
 ```
 
 
-By doing so the javascript runtime will make a fetch for each item in the array, parse the response in order to decorate the object with all the properties found in the detail page:
+By doing so the javascript runtime will make a fetch for each item in the array, parse the response in order to decorate the object with all the properties found in the detail page. There are over 1.700 items in the list thus we'll need to fetch for the same amount of time, a bunch of minutes with a regular broadband connection.
 
 Once you'll get the ‘Done!’ message from the console will mean the final dataset, a structured and machine readable version of the informations you can read on the website, will be ready to be used in browser memory.
 
 To move the just cooked dataset outside the browser temporary memory (for instance if you've close the window you would lost the dataset), we simply need to save it in a local file.
-The quickest way to do that is to copy the dataset into the system clipboard using the console internal function ‘copy(arr)’ where ‘arr’ is the variable name we used in the whole process.
+The quickest way to do that is to copy the dataset into the system clipboard using the console internal function ```copy(arr)``` where ```arr``` is the variable name we used in the whole process.
 
+The dump of the final dataset is not included into the repository to make it lightweight.
 
-
-There are nearly 1.700 and more items so the same number for a sequential requests with an estimate time of a bunch of minutes. Once all the requests have been done you have your dataset cooked there.
-
-Now your initial ```arr``` array has been decorated with all the props:
-
-	console.log(arr);
-
-Or you can copy in your Clipboard using:
-
-	copy(arr);
-
-Since json is quite big, you can convert it as ```csv``` with the following snippet:
+Since json is quite huge (nearly 10Mb), you can convert it as ```csv``` (less than 1Mb) before export in local environment with the following snippet:
 
 ```javascript
 var csv = '';
 
-d3.json('data/data.json', function(err, data){
-	
-	for(var k in data[0]){
-		csv += '"' + k + '",'
+for(var k in arr[0]){
+	csv += '"' + k + '",'
+}
+csv+='\n\r';
+
+arr.forEach(function(d, i){
+	for(var k in d){
+		var v = (k=='name' || k=='link') ? d[k] : d[k].value;
+		csv += '"' + d[k] + '",'
 	}
 	csv+='\n\r';
-
-	data.forEach(function(d, i){
-		for(var k in d){
-			var v = (k=='name' || k=='link') ? d[k] : d[k].value;
-			csv += '"' + v + '",'
-		}
-		csv+='\n\r';
-	})
-
 })
+
 ```
 
+Now you can copy your csv source with ```copy(csv);``` and paste it into a blank text file.
 
