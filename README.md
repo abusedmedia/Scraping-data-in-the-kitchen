@@ -139,7 +139,6 @@ csv+='\n\r';
 
 arr.forEach(function(d, i){
 	for(var k in d){
-		var v = (k=='name' || k=='link') ? d[k] : d[k].value;
 		csv += '"' + d[k] + '",'
 	}
 	csv+='\n\r';
