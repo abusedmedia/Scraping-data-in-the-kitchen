@@ -1,6 +1,5 @@
 *.pdf
 *.psd
+*.numbers
 bower_components
 node_modules
-
-output_faPeJT.gif

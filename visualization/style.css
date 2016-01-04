@@ -1,0 +1,13 @@
+*{
+	box-sizing: border-box;
+}
+body{
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+}
+.label{
+	font-size: 11px;
+}
+line{
+	shape-rendering: crispEdges;
+}
