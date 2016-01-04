@@ -1,0 +1,6 @@
+*.pdf
+*.psd
+bower_components
+node_modules
+
+output_faPeJT.gif
