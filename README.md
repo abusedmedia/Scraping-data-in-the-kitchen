@@ -1,26 +1,22 @@
 # Scraping data in the kitchen
 
-
 ### or play with the browser in order to do web scraping over valori-alimenti.it
 
 This is the repository for the technical explanation as well as the source files related to the sister article, which describes the motivations behind this work, published on Medium that can be found over [here](http://medium.com)
 
-This is the step by step about how to start with your browser and 
-Assuming you are using Google Chrome as browser:
+If you have already read the article, you can go further over the step by step about how to start your web scraping session with your browser. 
 
-- Open in a new tab [this](http://www.valori-alimenti.com/cerca/grassi.php) url which is our starting page
-- Open the Chrome DevTool and the Console tab (ALT+CMD+I)
-- Open in an another tab [this link](http://code.jquery.com/jquery-2.1.4.min.js) in order to grab (copy into the clipboard) the full source of jQuery, then close it
-- Back to the first tab, paste the full code into the Console window and hit ENTER
+Assuming you are using Google Chrome as browser of choice you need to:
 
+- open in a new tab [this](http://www.valori-alimenti.com/cerca/grassi.php) url which is our starting page
+- open the Chrome DevTool and the Console tab (ALT+CMD+I)
+- open in an another tab [this link](http://code.jquery.com/jquery-2.1.4.min.js) in order to grab (copy into the clipboard) the full source of jQuery, then close it
+- back to the first tab, paste the full code into the Console window and hit ENTER
 
+Now we have injected jQuery into the original page thus we can exploit it for our purposes.
 
-Now we have injected jQuery into the original page and we can exploit it for our purposes.
-
-
-
-From that page we have the complete list of nutrition elements alongside the relative detail link page.
-Copy and paste the following snippet in order to transform that list into a logic array.
+The starting page shows the complete list of nutrition elements we need to scrape. Each element contains also the link to its detail page we'll cover later.
+Copy and paste the following snippet in order to transform that list into a logic javascript array.
 
 
 ```javascript
@@ -38,20 +34,13 @@ $('tbody').children().each(function(i, e){
 console.log(arr);
 ```
 
-
 Here a quick .gif to show the steps in sequence with some highlights:
-
 
 ![image](images/scraping.gif)
 
-
-
-
-
-
 Now with the complete list we can fetch each page for each element in order to get details for each item. The following snippet is an example about how to do this task.
 
-```
+```javascript
 function getItem(item){
 	
 	$.get(item.link)
@@ -82,7 +71,7 @@ This snippet is not actually ready since it needs a way to be called for each it
 
 
 
-```
+```javascript
 function getItem(item){
 	
 	$.get(item.link)
@@ -147,7 +136,7 @@ Or you can copy in your Clipboard using:
 
 Since json is quite big, you can convert it as ```csv``` with the following snippet:
 
-```
+```javascript
 var csv = '';
 
 d3.json('data/data.json', function(err, data){
