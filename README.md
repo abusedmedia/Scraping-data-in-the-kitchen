@@ -2,6 +2,8 @@
 
 ### or play with the browser in order to do web scraping over valori-alimenti.it
 
+![image](images/viz.png)
+
 This is the repository for the technical explanation as well as the source files related to the sister article, which describes the motivations behind this work, published on Medium that can be found over [here](http://medium.com)
 
 If you have already read the article, you can go further over the step by step about how to start your web scraping session with your browser. 
@@ -148,3 +150,7 @@ arr.forEach(function(d, i){
 
 Now you can copy your csv source with ```copy(csv);``` and paste it into a blank text file.
 
+## Visualization
+
+At this stage there is a first version of a possible visualization using the dataset just got from the above activity.
+You can find the source file inside the ```visualization``` folder or you can view the working version [here](http://bl.ocks.org/abusedmedia/9a5abb33f4d45703c016)
