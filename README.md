@@ -132,6 +132,9 @@ The dump of the final dataset is not included into the repository to make it lig
 Since json is quite huge (nearly 10Mb), you can convert it as ```csv``` (less than 1Mb) before export in local environment with the following snippet:
 
 ```javascript
+
+// this snippet assumes the json array is well structured without missing keys
+// a better way would be to make sure, for each object, the keys and values are correct and present
 var csv = '';
 
 for(var k in arr[0]){
