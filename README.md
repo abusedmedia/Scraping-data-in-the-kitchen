@@ -8,7 +8,7 @@ This is the repository for the technical explanation as well as the source files
 
 If you have already read the article, you can go further over the step by step about how to start your web scraping session with your browser. 
 
-Assuming you are using Google Chrome as browser of choice you need to:
+Assuming you are using Google Chrome you need to:
 
 - open in a new tab [this](http://www.valori-alimenti.com/cerca/grassi.php) url which is our starting page
 - open the Chrome DevTool and the Console tab (ALT+CMD+I)
