@@ -11,7 +11,7 @@ If you have already read the article, you can go further over the step by step a
 Assuming you are using Google Chrome you need to:
 
 - open in a new tab [this](http://www.valori-alimenti.com/cerca/grassi.php) url which is our starting page
-- open the Chrome DevTool and the Console tab (ALT+CMD+I)
+- open the Chrome DevTool and the Console tab (Opt+⌘+I or Ctrl+Shift+I)
 - open in another tab [this link](http://code.jquery.com/jquery-2.1.4.min.js) in order to grab (copy into the clipboard) the full source of jQuery, then close it
 - back to the first tab, paste the full code into the Console window and hit ENTER
 
