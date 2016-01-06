@@ -1,12 +1,12 @@
 # Scraping data in the kitchen
 
-### or play with the browser in order to do web scraping over valori-alimenti.it
-
 ![image](images/viz.png)
 
-This is the repository for the technical explanation as well as the source files related to the sister article, which describes the motivations behind this work, published on Medium that can be found over [here](http://medium.com)
 
-If you have already read the article, you can go further over the step by step about how to start your web scraping session with your browser. 
+### Please read this article to understand the context and the motivations of this work as well as the further possible directions
+
+
+This document outline the step by step tutorial about how to begin a web scraping session with a browser. 
 
 Assuming you are using Google Chrome you need to:
 
