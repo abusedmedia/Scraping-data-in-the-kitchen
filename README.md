@@ -1,11 +1,10 @@
 # Scraping data in the kitchen
 
+<!--
 ### Please read [this article](http://medium.com) to understand the context and the motivations of this work as well as the further possible directions
+-->
 
 ![image](images/viz.png)
-
-
-
 
 
 This document outline the step by step tutorial about how to begin a web scraping session with a browser. 
