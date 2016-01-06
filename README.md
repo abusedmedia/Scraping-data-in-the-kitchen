@@ -1,8 +1,8 @@
 # Scraping data in the kitchen
 
-<!--
-### Please read [this article](http://medium.com) to understand the context and the motivations of this work as well as the further possible directions
--->
+
+### Please read [this article](https://goo.gl/HvQsfu) to understand the context and the motivations of this work in progress.
+
 
 ![image](images/viz.png)
 
